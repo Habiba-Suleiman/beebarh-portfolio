@@ -1,0 +1,305 @@
+0    $18,856.28
+1    $33,643.33
+2    $27,955.10
+3    $37,909.78
+4    $14,238.32
+5    $48,145.11
+6    $19,580.87
+7    $45,820.46
+8    $50,119.22
+9    $19,784.63
+Name: Billing Amount, dtype: str
+str
+Shape: (55500, 15)
+
+Column types:
+Name                    str
+Age                   int64
+Gender                  str
+Blood Type              str
+Medical Condition       str
+Date of Admission       str
+Doctor                  str
+Hospital                str
+Insurance Provider      str
+Billing Amount          str
+Room Number           int64
+Admission Type          str
+Discharge Date          str
+Medication              str
+Test Results            str
+dtype: object
+
+Missing valus per column:
+Name                  0
+Age                   0
+Gender                0
+Blood Type            0
+Medical Condition     0
+Date of Admission     0
+Doctor                0
+Hospital              0
+Insurance Provider    0
+Billing Amount        0
+Room Number           0
+Admission Type        0
+Discharge Date        0
+Medication            0
+Test Results          0
+dtype: int64
+
+Unique values per column:
+Name                  49992
+Age                      77
+Gender                    2
+Blood Type                8
+Medical Condition         6
+Date of Admission      1827
+Doctor                40341
+Hospital              39876
+Insurance Provider        5
+Billing Amount        49765
+Room Number             400
+Admission Type            3
+Discharge Date         1856
+Medication                5
+Test Results              3
+dtype: int64
+
+Duplicate rows: 534
+
+Billing amount summary:
+count    54966.000000
+mean     25544.306298
+std      14208.409724
+min      -2008.490000
+25%      13243.722500
+50%      25542.750000
+75%      37819.857500
+max      52764.280000
+Name: Billing Amount, dtype: float64
+Negative billing rows: 106
+
+Cleaned file saved successfully!
+New shape: (54966, 18)
+
+Rows with Unperseable Discharge Date: 0
+Empty DataFrame
+Columns: [Discharge Date]
+Index: []
+
+
+=========== DEMOGRAPHICS ===========
+
+Age summary:
+count    54966.000000
+mean        51.535185
+std         19.605661
+min         13.000000
+25%         35.000000
+50%         52.000000
+75%         68.000000
+max         89.000000
+Name: Age, dtype: float64
+
+Patients by Age Group:
+Age Group
+0-18       886
+19-35    13519
+36-50    12167
+51-65    12298
+66+      16096
+Name: count, dtype: int64
+
+Patients by Gender:
+Gender
+Male      27496
+Female    27470
+Name: count, dtype: int64
+
+Condition share within each Blood Type (%):
+Medical Condition  Arthritis  Asthma  Cancer  Diabetes  Hypertension  Obesity
+Blood Type                                                                   
+A+                      16.1    16.3    17.0      17.4          16.3     17.0
+A-                      16.6    16.8    16.3      16.7          17.2     16.4
+AB+                     16.3    17.0    16.0      16.9          17.5     16.2
+AB-                     17.2    16.3    17.3      16.5          16.1     16.7
+B+                      17.3    16.0    17.2      17.1          15.8     16.5
+B-                      16.8    16.1    16.5      16.5          16.9     17.2
+O+                      17.3    17.0    16.0      16.7          16.7     16.4
+O-                      16.7    16.7    16.8      16.3          16.7     16.8
+
+
+========== CONDITIONS ===========
+
+Cases per condition:
+Medical Condition
+Arthritis       9218
+Diabetes        9216
+Hypertension    9151
+Obesity         9146
+Cancer          9140
+Asthma          9095
+Name: count, dtype: int64
+
+Conditions by Age Group:
+Medical Condition  Arthritis  Asthma  Cancer  Diabetes  Hypertension  Obesity
+Age Group                                                                    
+0-18                     149     150     146       140           143      158
+19-35                   2262    2266    2271      2219          2234     2267
+36-50                   2062    1983    1986      2094          2011     2031
+51-65                   2029    1978    2053      2087          2048     2103
+66+                     2716    2718    2684      2676          2715     2587
+
+
+=============== ADMISSIONS ================
+
+Admissions per month:
+Admission Month
+2019-05    677
+2019-06    899
+2019-07    951
+2019-08    985
+2019-09    924
+          ... 
+2024-01    903
+2024-02    869
+2024-03    902
+2024-04    941
+2024-05    212
+Length: 61, dtype: int64
+
+Admission Type counts:
+Admission Type
+Elective     18473
+Urgent       18391
+Emergency    18102
+Name: count, dtype: int64
+
+Avg Length of Stay by Condition:
+Medical Condition
+Arthritis       15.50
+Asthma          15.68
+Cancer          15.50
+Diabetes        15.43
+Hypertension    15.44
+Obesity         15.45
+Name: Length of Stay, dtype: float64
+
+Avg Length of Stay by Admission Type:
+Admission Type
+Elective     15.51
+Emergency    15.58
+Urgent       15.40
+Name: Length of Stay, dtype: float64
+
+
+=============== FINANCIALS =================
+
+Billing total & average by Condition:
+                            sum      mean
+Medical Condition                        
+Arthritis          2.351676e+08  25511.78
+Asthma             2.331363e+08  25633.46
+Cancer             2.298922e+08  25152.32
+Diabetes           2.364870e+08  25660.48
+Hypertension       2.333785e+08  25503.06
+Obesity            2.360067e+08  25804.36
+
+Patients per Insurance Provider:
+Insurance Provider
+Cigna               11139
+Medicare            11039
+UnitedHealthcare    11014
+Blue Cross          10952
+Aetna               10822
+Name: count, dtype: int64
+
+Avg Billing by Admission Type:
+Admission Type
+Elective     25612.14
+Emergency    25505.33
+Urgent       25514.53
+Name: Billing Amount, dtype: float64
+
+
+================= HOSPITALS & DOCTORS ==================
+
+Top 10 Hospitals by case count:
+Hospital
+LLC Smith      44
+Ltd Smith      39
+Johnson PLC    37
+Smith Ltd      37
+Smith PLC      36
+Smith Group    36
+Johnson Inc    34
+Smith Inc      33
+Smith LLC      32
+Group Smith    32
+Name: count, dtype: int64
+
+Top 10 Doctors by caseload:
+Doctor
+Michael Smith       27
+John Smith          22
+Robert Smith        21
+James Smith         20
+Michael Johnson     20
+Robert Johnson      19
+David Smith         19
+Michael Williams    18
+Matthew Smith       17
+John Johnson        17
+Name: count, dtype: int64
+
+
+================== OUTCOMES ===================
+
+Test Result distribution:
+Test Results
+Abnormal        18437
+Normal          18331
+Inconclusive    18198
+Name: count, dtype: int64
+
+'Normal' result rate by condition (%):
+Medical Condition
+Arthritis       32.5
+Asthma          34.3
+Cancer          33.0
+Diabetes        33.2
+Hypertension    33.9
+Obesity         33.1
+dtype: float64
+
+Medication counts by Condition:
+Medication         Aspirin  Ibuprofen  Lipitor  Paracetamol  Penicillin
+Medical Condition                                                      
+Arthritis             1901       1805     1810         1858        1844
+Asthma                1781       1802     1814         1870        1828
+Cancer                1768       1862     1904         1829        1777
+Diabetes              1836       1846     1875         1794        1865
+Hypertension          1845       1874     1823         1839        1770
+Obesity               1853       1834     1812         1775        1872
+
+
+================ OPERATIONAL ===================
+
+Admissions by Day of the week:
+Date of Admission
+Tuesday      7913
+Thursday     7909
+Wednesday    7873
+Sunday       7850
+Saturday     7822
+Friday       7818
+Monday       7781
+Name: count, dtype: int64
+
+Avg Room Number by Test Result:
+Test Results
+Abnormal        301.1
+Inconclusive    300.5
+Normal          301.7
+Name: Room Number, dtype: float64
